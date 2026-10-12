@@ -1,0 +1,366 @@
+/* Everything this plugin adds carries the same accent, so it's easy to spot. */
+:root {
+	--amowc-accent: #6d28d9;
+	--amowc-accent-hover: #5b21b6;
+	--amowc-accent-soft: #f5f3ff;
+}
+
+.amowc-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 100000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 16px;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.amowc-modal[hidden] {
+	display: none;
+}
+
+.amowc-modal__box {
+	width: 100%;
+	max-width: 520px;
+	max-height: 90vh;
+	overflow: auto;
+	padding: 24px;
+	background: #fff;
+	border-radius: 4px;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.amowc-modal__box h2 {
+	margin-top: 0;
+}
+
+.amowc-modal__box p {
+	margin: 0 0 16px;
+}
+
+.amowc-modal__box label {
+	display: block;
+	margin-bottom: 4px;
+	font-weight: 600;
+}
+
+.amowc-modal__box input[type="number"] {
+	width: 100%;
+}
+
+.amowc-modal__box .description {
+	display: block;
+	margin-top: 4px;
+}
+
+.amowc-modal__actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-top: 24px;
+}
+
+.amowc-modal__actions .amowc-skip {
+	margin-right: auto;
+}
+
+.amowc-rates fieldset {
+	margin-bottom: 16px;
+}
+
+.amowc-rates legend {
+	margin-bottom: 8px;
+	font-weight: 600;
+}
+
+.amowc-rates label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 0;
+	font-weight: 400;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.amowc-rates input[type="radio"] {
+	margin: 0;
+}
+
+.amowc-rate-cost {
+	margin-left: auto;
+	font-weight: 600;
+}
+
+/* Above the selectWoo dropdowns of the order screen. */
+.select2-container--open .select2-dropdown {
+	z-index: 100001;
+}
+
+
+
+.amowc-copy {
+	margin: -8px 0 16px;
+}
+
+.amowc-copy[hidden],
+.amowc-new-fields[hidden] {
+	display: none;
+}
+
+.amowc-modal__box .amowc-copy label {
+	margin: 8px 0 0;
+	font-weight: 400;
+}
+
+.amowc-copy .description {
+	margin: 2px 0 0 24px;
+}
+
+.select2-results__group {
+	font-weight: 600;
+}
+
+/* Fields and buttons added by the plugin. */
+.amowc-advanced > label::before,
+.amowc-quick-add::before,
+.amowc-calc-shipping::before,
+.amowc-link::before {
+	font-family: dashicons;
+	content: "\f311";
+	margin-right: 4px;
+	color: var(--amowc-accent);
+	vertical-align: -2px;
+}
+
+.amowc-currency.amowc-advanced,
+.amowc-currency-off {
+	padding: 8px 10px;
+	background: var(--amowc-accent-soft);
+	border-left: 3px solid var(--amowc-accent);
+}
+
+#order_data .order_data_column .amowc-currency-wrap p {
+	margin: 9px 0 0;
+	padding: 8px 10px !important; /* WooCommerce zeroes padding in this column. */
+}
+
+.amowc-currency label {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.amowc-currency .amowc-currency-toggle {
+	margin-left: auto;
+	font-weight: 400;
+	font-size: 12px;
+}
+
+/* Inline-block keeps the link underline off the icon. */
+.amowc-link::before {
+	display: inline-block;
+	text-decoration: none;
+}
+
+.amowc-link,
+.amowc-currency-toggle {
+	color: var(--amowc-accent);
+	font-weight: 600;
+}
+
+.amowc-link:hover,
+.amowc-link:focus,
+.amowc-currency-toggle:hover,
+.amowc-currency-toggle:focus,
+#order_data .wc-order-status .amowc-pay-action:hover,
+#order_data .wc-order-status .amowc-pay-action:focus {
+	color: var(--amowc-accent-hover);
+	text-decoration-thickness: 2px;
+}
+
+.amowc-link:focus-visible,
+.amowc-currency-toggle:focus-visible {
+	outline: 2px solid var(--amowc-accent);
+	outline-offset: 2px;
+	box-shadow: none;
+}
+
+/* WooCommerce buttons that got a tip from the plugin: info icon after the label. */
+.amowc-help-tip::after,
+#woocommerce-order-items .button.amowc-tip::after {
+	font-family: dashicons;
+	content: "\f14c";
+	margin-left: 4px;
+	font-size: 16px;
+	line-height: 1;
+	vertical-align: -3px;
+	color: var(--amowc-accent);
+}
+
+.amowc-help-tip {
+	display: inline-block;
+	margin-left: 4px;
+	cursor: help;
+}
+
+.amowc-help-tip::after {
+	margin-left: 0;
+}
+
+/* On blue primary buttons the icon is white. */
+#woocommerce-order-items .button-primary.amowc-tip::after {
+	color: #fff;
+}
+
+.amowc-currency-off {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.amowc-currency[hidden],
+.amowc-currency-off[hidden] {
+	display: none !important;
+}
+
+/* Our entries in the "Choose an action" list. */
+select[name="wc_order_action"] option[value^="amowc_"] {
+	color: var(--amowc-accent);
+	font-weight: 600;
+}
+
+#actions .amowc-help-tip {
+	margin-left: 2px;
+	vertical-align: middle;
+}
+
+#woocommerce-order-items .amowc-quick-add {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px;
+	text-align: left;
+	background: var(--amowc-accent-soft);
+	border-left: 3px solid var(--amowc-accent);
+}
+
+#woocommerce-order-items .amowc-quick-add::before {
+	font-size: 20px;
+	margin: 0;
+}
+
+.amowc-quick-add .select2-container {
+	flex: 1;
+	min-width: 0;
+}
+
+.amowc-quick-add .amowc-help-tip::after {
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+.amowc-quick-add .select2-selection--single {
+	height: 40px;
+	border: 1px solid var(--amowc-accent) !important;
+	box-shadow: none !important;
+}
+
+.amowc-quick-add .select2-selection--single .select2-selection__rendered {
+	text-align: left;
+	line-height: 38px;
+	font-weight: 600;
+}
+
+.amowc-quick-add .select2-selection--single .select2-selection__arrow {
+	height: 38px;
+}
+
+#woocommerce-order-items .button.amowc-calc-shipping {
+	color: var(--amowc-accent);
+	border-color: var(--amowc-accent);
+}
+
+#woocommerce-order-items .button.amowc-calc-shipping:hover {
+	color: var(--amowc-accent-hover);
+	border-color: var(--amowc-accent-hover);
+	background: var(--amowc-accent-soft);
+}
+
+/* Same look as the other plugin links, right-aligned under the status. */
+#order_data .wc-order-status .amowc-pay-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: 4px 14px;
+	margin-top: 6px;
+}
+
+#order_data .wc-order-status .amowc-pay-label {
+	color: #50575e;
+}
+
+#order_data .wc-order-status .amowc-pay-action {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+	font-weight: 600;
+	color: var(--amowc-accent);
+	text-decoration: underline;
+}
+
+#order_data .wc-order-status .amowc-pay-action:disabled {
+	opacity: 0.6;
+}
+
+#order_data .wc-order-status .amowc-copy-link::before {
+	content: "\f105";
+}
+
+#order_data .wc-order-status .amowc-email-link::before {
+	content: "\f465";
+}
+
+/* Duplicate button in the orders list and the preview. */
+.wc-action-button-amowc-duplicate::after {
+	font-family: dashicons !important;
+	content: "\f105" !important;
+	color: var(--amowc-accent);
+}
+
+.wc-order-preview .wc-action-button-amowc-duplicate::after {
+	content: none !important;
+}
+
+.wc-order-preview .wc-action-button-amowc-duplicate {
+	display: inline-block !important;
+	margin: 0 8px 0 0 !important;
+	color: var(--amowc-accent);
+	border-color: var(--amowc-accent);
+}
+
+/* Inline icon, so the button keeps WooCommerce's own size and alignment. */
+.wc-order-preview .wc-action-button-amowc-duplicate::before {
+	font-family: dashicons;
+	content: "\f105";
+	font-size: 16px;
+	line-height: 1;
+	margin-right: 4px;
+	vertical-align: -3px;
+}
+
+.amowc-badge {
+	display: inline-block;
+	margin-left: 8px;
+	padding: 2px 8px;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1.6;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	vertical-align: middle;
+	color: #fff;
+	background: var(--amowc-accent);
+	border-radius: 10px;
+}
