@@ -4,7 +4,7 @@ Tags: manual order, phone order, admin order, currency, add products
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,16 @@ New orders open as drafts with WooCommerce's own "Create" button, exactly like a
 
 WooCommerce > Settings > Advanced > Advanced Manual Orders.
 
+= Advanced Manual Orders Pro =
+
+[Advanced Manual Orders Pro](https://www.businessbloomer.com/plugins/woocommerce-advanced-manual-orders-pro/) adds:
+
+* **Pay at your real checkout:** the payment link fills the customer's cart, so they can add their address, use a coupon and pay with any payment method.
+* **Payment link options:** choose which payment methods it offers, make it expire, and send reminders until the order is paid. Customers can also change their address and shipping before they pay.
+* **Order as a customer or guest:** build the order on your shop, as they would, then record a payment taken over the phone with a staff-only payment method and its transaction reference.
+* **Notes about each customer:** shown on all their orders, with a reminder to confirm a detail with the caller.
+* **Price lock:** prices you set by hand stay as they are when you add a coupon or change quantities.
+
 == Installation ==
 
 1. Install and activate the plugin from Plugins > Add New, or upload the zip.
@@ -47,7 +57,7 @@ WooCommerce > Settings > Advanced > Advanced Manual Orders.
 
 = Are prices converted when I change the currency? =
 
-No. The currency is changed and prices stay as entered, so type the prices you agreed with the customer. Automatic conversion at exchange rates is coming in the Pro version.
+No. The currency is changed and prices stay as entered, so type the prices you agreed with the customer.
 
 = Which shipping methods work? =
 
@@ -91,6 +101,10 @@ Add its currencies in the settings and they show at the top of the list. Develop
 6. The settings, under WooCommerce > Settings > Advanced > Advanced Manual Orders.
 
 == Changelog ==
+
+= 1.0.2 =
+
+* The settings page and the Plugins screen now show what Advanced Manual Orders Pro adds. Both are hidden when Pro is active.
 
 = 1.0.1 =
 * The customer search now also finds people by their shipping name, company, address, city or postcode, and by their billing address, city or postcode. This works for registered customers and past guests.

@@ -2,7 +2,7 @@
 /**
  * Plugin Name:          Business Bloomer Advanced Manual Orders for WooCommerce
  * Description:          Create manual orders in WooCommerce without the pain: pick a currency, get real shipping rates, taxes that recalculate on their own, one-click duplicate and reorder, and payment links that work without login.
- * Version:              1.0.1
+ * Version:              1.0.2
  * Requires at least:    6.9
  * Requires PHP:         7.4
  * Requires Plugins:     woocommerce
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'AMOWC_VERSION', '1.0.1' );
+define( 'AMOWC_VERSION', '1.0.2' );
 define( 'AMOWC_PLUGIN_FILE', __FILE__ );
 define( 'AMOWC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'AMOWC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -54,6 +54,7 @@ function amowc_init() {
 	require_once AMOWC_PLUGIN_DIR . 'includes/class-amowc-abilities.php';
 
 	add_filter( 'plugin_action_links_' . plugin_basename( AMOWC_PLUGIN_FILE ), 'amowc_action_links' );
+	add_filter( 'plugin_row_meta', 'amowc_row_meta', 10, 2 );
 }
 
 /**
@@ -64,5 +65,19 @@ function amowc_init() {
  */
 function amowc_action_links( $links ) {
 	array_unshift( $links, '<a href="' . esc_url( amowc_settings_url() ) . '">' . esc_html__( 'Settings', 'business-bloomer-advanced-manual-orders' ) . '</a>' );
+	return $links;
+}
+
+/**
+ * Adds a "Get Pro" link under the plugin description while Pro is not active.
+ *
+ * @param array  $links Plugin row meta links.
+ * @param string $file  Plugin file.
+ * @return array
+ */
+function amowc_row_meta( $links, $file ) {
+	if ( plugin_basename( AMOWC_PLUGIN_FILE ) === $file && ! amowc_pro_active() ) {
+		$links[] = '<a href="' . esc_url( amowc_pro_url() ) . '" target="_blank" rel="noopener">' . esc_html__( 'Get Pro', 'business-bloomer-advanced-manual-orders' ) . '</a>';
+	}
 	return $links;
 }
