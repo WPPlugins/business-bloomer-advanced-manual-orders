@@ -4,7 +4,7 @@ Tags: manual order, phone order, admin order, currency, add products
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,7 +24,7 @@ https://youtu.be/RCZxM-ybwV0
 * **Currency per order:** turn on the currency selector (one click, or in the settings) and pick any currency for a manual order, on the form or on the order screen while the order is unpaid. The currencies your store sells in come first, read from WooPayments, WPML, Aelia, CURCY, FOX, YayCurrency, TIV.NET, Price Based on Country and Booster.
 * **Real shipping rates:** "Calculate shipping", next to Recalculate, shows the rates of your shipping zones for these items and this address, the same ones checkout would show. Pick one and it's added with its tax.
 * **Taxes that update on their own:** add or remove items, change quantities or the address, and taxes and totals are recalculated. No more Recalculate button.
-* **Duplicate order:** one click from the orders list, the order preview or the order screen. An exact copy, same customer, items, prices, shipping, fees and coupons, saved as a new order (Pending payment by default, you choose the status in the settings) and no emails are sent. Payment details, invoices, license keys and order notes stay with the original.
+* **Duplicate order:** one click from the orders list, the order preview or the order screen. An exact copy, same customer, items, prices, shipping, fees and coupons, saved as a new order (Pending payment by default, you choose the status in the settings) and no emails are sent. Payment details, invoices, license keys and order notes stay with the original. To copy a hidden field too, like a VAT number, pick it in the settings.
 * **Tips where you need them:** WooCommerce's own buttons (Add item, Add fee, Add tax, Recalculate) get a short tip on what the plugin now does for you, like percentage fees and automatic taxes.
 * **New order for this customer:** a fresh order with the same customer and addresses.
 * **New order with these products:** the same products and quantities at today's prices.
@@ -73,7 +73,7 @@ If you set `woocommerce_adjust_non_base_location_prices` to false, WooCommerce 1
 
 = What does "Repeat the whole order" leave out? =
 
-Everything that belongs to the original's payment and processing: payment method, transaction ID, paid and completed dates, stock changes, order notes, and hidden data added by other plugins, such as invoice numbers, license keys and tracking numbers. Visible custom fields and line item details, like variation attributes, product options or an engraving text, are copied. Developers can change this with the `amowc_copy_meta` filter.
+Everything that belongs to the original's payment and processing: payment method, transaction ID, paid and completed dates, stock changes, order notes, and hidden data added by other plugins, such as invoice numbers, license keys and tracking numbers. Visible custom fields and line item details, like variation attributes, product options or an engraving text, are copied. To copy hidden fields too, like a VAT number, pick them in "Also copy these fields" in the settings. Developers can also use the `amowc_copy_meta` filter.
 
 = What email does "Save & email" (Order Pay link) send? =
 
@@ -101,6 +101,11 @@ Add its currencies in the settings and they show at the top of the list. Develop
 6. The settings, under WooCommerce > Settings > Advanced > Advanced Manual Orders.
 
 == Changelog ==
+
+= 1.0.3 =
+
+* New: "Also copy these fields" in the settings. Pick hidden order fields, like a VAT number, and they are copied when you duplicate or repeat an order, or start a new order for the same customer.
+* The settings page is now split into sections: New orders, Order edit page, Currency and Payment link.
 
 = 1.0.2 =
 
